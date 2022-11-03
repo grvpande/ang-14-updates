@@ -1,0 +1,16 @@
+<h1 class="text-grey-darkest">Todo List</h1>
+<form class="flex flex-wrap mt-4" [formGroup]="addForm">
+  <input
+    class="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
+    placeholder="Add Todo"
+    formControlName="title"
+  />
+  <p *ngIf="!addForm.get('title')?.valid && addForm.get('title')?.touched">Input is not valid!</p>
+  <button
+    (click)="onAddTodo()"
+    [disabled]="!addForm.get('title')?.valid"
+    class="flex-no-shrink p-2 border-2 rounded text-teal border-teal hover:text-black hover:bg-teal disabled:opacity-5"
+  >
+    Add
+  </button>
+</form>
